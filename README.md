@@ -17,7 +17,11 @@ Algumas telas:
 
 ![image](https://github.com/user-attachments/assets/a581d92c-52ed-4267-b9c9-23a46152d6b0)
 
+<br><br>
 
+![image](https://github.com/user-attachments/assets/ec9b4b3f-c709-41d4-95d5-29ceacd53804)
+
+<br><br>
 
 <br><br><br>
 
