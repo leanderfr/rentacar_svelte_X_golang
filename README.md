@@ -14,9 +14,13 @@ Vídeo curto comentando alguns detalhes da aplicação:
 <br><br><br>
 Algumas telas:
 <br><br>
-![image](https://github.com/user-attachments/assets/aa68f2a2-8dfd-4064-866e-b40eec6ce0b4)
+
+![image](https://github.com/user-attachments/assets/a581d92c-52ed-4267-b9c9-23a46152d6b0)
+
+
+
 <br><br><br>
-![image](https://github.com/user-attachments/assets/70cb6e21-8ae7-47b8-9829-bf31369e1c7d)
+
 
 
 
