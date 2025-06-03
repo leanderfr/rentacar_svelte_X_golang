@@ -1,5 +1,9 @@
 # Aplicação de demonstração feita com Svelte/Tailwind/Vanilla css/jscript/Jquery X Golang
 
+Esta aplicação foi feita entre dezembro/24 e janeiro/25, e está dividida em 3 stacks (svelte, golang e php (backend opcional))
+
+Esta manhã (03/06/25), criei o repositório atual (rentacar_svelte_X_golang) somente com svelte e golang para facilitar a visualização.
+
 Link para a aplicação containerizada na AWS:
 <br><br>
 <a href="http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com:3000/" target="_blank">
