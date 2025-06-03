@@ -11,6 +11,13 @@ Vídeo curto comentando alguns detalhes da aplicação:
 <a href="https://youtu.be/MGTK2XQaDl4" target="_blank">
     <span style='font-size:20px'>https://youtu.be/MGTK2XQaDl4</span>
 </a>
+<br><br><br>
+Algumas telas:
+<br><br>
+![image](https://github.com/user-attachments/assets/aa68f2a2-8dfd-4064-866e-b40eec6ce0b4)
+<br><br><br>
+![image](https://github.com/user-attachments/assets/70cb6e21-8ae7-47b8-9829-bf31369e1c7d)
+
 
 
 
