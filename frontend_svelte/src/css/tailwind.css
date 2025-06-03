@@ -1,0 +1,1043 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/****************************************************************************************************************************************************
+
+arquivo CSS principal 
+
+Embora tailwind seja mais pratico de usar,   utilizando abaixo vanilla CSS e tailwind para demonstrar o conhecimento em ambos 
+
+****************************************************************************************************************************************************/
+
+/* esconde scroll do navegador de carros , para que seja feita navegacao por botoes */
+/* Para Chrome, Safari and Opera */
+#homeCarsBrowser::-webkit-scrollbar {
+    display: none;
+}
+
+/* Para IE, Edge and Firefox */
+#homeCarsBrowser {
+    -ms-overflow-style: none; /* IE e Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+html {
+    overflow: hidden;
+    font-family: 'roboto';
+}
+/********************************************************
+scrollbar personalizado da div principal - divMAIN 
+só exibe scroll qdo mouse sobre a DIV
+largura menor
+*********************************************************/
+#divMAIN::-webkit-scrollbar {
+    width: 15px;
+}
+
+#divMAIN::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 5px;
+}
+
+#divMAIN::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 5px;
+}
+
+#divMAIN::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+}
+
+#divMAIN:hover::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #d3d3d3;
+}
+
+#divMAIN:hover::-webkit-scrollbar-thumb:hover {
+    background: #d3d3d3;
+}
+
+/* css abaixo é para #modalWindow ou #recordForm= form ou janela modal aberta */
+#divWINDOW_TITLE {
+    font-size: 1.2em;
+    color: black;
+    margin-left: 20px;
+}
+
+#divWINDOW_DRAG {
+    @apply bg-icon-div-draggable w-7 bg-transparent bg-no-repeat bg-contain bg-center mr-6  text-gray-700;
+}
+
+#divWINDOW_TOP {
+    @apply flex flex-row w-full h-[40px] bg-gray-300 leading-10 items-center justify-between cursor-pointer rounded-t-lg;
+}
+
+.divWINDOW_BUTTON {
+    font-size: 1.3em;
+    cursor: pointer;
+    color: black;
+}
+.divWINDOW_BUTTON:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+/****************************************************************************
+ input.text padrao quando sozinho na linha
+****************************************************************************/
+input[type="text"].text_formFieldValue {
+    font-size: 1em;
+    vertical-align: middle;
+    border-top: 1px solid rgb(146, 186, 167);
+    border-bottom: 1px solid rgb(146, 186, 167);
+    border-left: 1px solid rgb(146, 186, 167);
+    border-right: 1px solid rgb(146, 186, 167);
+    background-color: white;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    cursor: pointer;
+    margin-top: 2px;
+    padding-left: 5px;
+    color: black;
+    width: 100%;
+    line-height: 25px;
+}
+input[type="text"].text_formFieldValue:hover {
+    border-color: green;
+    background-color: #e6e6ff;
+}
+input[type="text"].text_formFieldValue:focus {
+    background-color: #ffffcc;
+    border-color: green;
+}
+
+/*****************************************************************************************************
+ div que contem bandeira do país atualmente selecionado quando exibida em forms edicao
+*****************************************************************************************************/
+#divCountryFlag {
+    margin-top: -3px;
+}
+
+/****************************************************************************
+ css para  exibicao do vlr do campo, sem permitir edicao
+****************************************************************************/
+.span_formFieldValue {
+    font-size: 1.1em;
+    cursor: pointer;
+    color: black;
+    font-weight: bold;
+    line-height: 25px;
+    width: 100%;
+}
+
+/***********************************************************************************************************
+quando o gif de carregamento de imagem é exibido, necessario diminuir as proporcoes da <img>
+***********************************************************************************************************/
+.gifImageLoading {
+    align-self: center;
+    justify-self: center;
+    width: 60px;
+    height: 60px;
+}
+
+/***********************************************************************************************************
+quando alguma imagem é exibida em algum form,  necessario ajustar as propriedades 
+exemplos: #imgCarImage (CarForm.svelte), #imgManufacturerLogo (ManufacturerForm.svelte), etc
+***********************************************************************************************************/
+.imageLoadedInForm {
+    width: 100%;
+    height: 80%;
+    margin-bottom: 10px;
+    align-self: flex-end;
+    justify-self: center;
+}
+
+/****************************************************************************
+ botoes
+****************************************************************************/
+button.btnCANCEL {
+    @apply bg-gray-300 border-transparent border-[1px] text-black  text-center h-[30px] cursor-pointer w-[150px] hover:border-black
+ bg-icon-button-cancel  bg-auto bg-no-repeat  bg-position-left-corner-icon  pt-[2px] rounded-[6px];
+}
+
+button.btnMETADATA {
+    @apply bg-gray-300 border-transparent border-[1px] text-black  text-center h-[30px] cursor-pointer w-[150px] hover:border-black
+ bg-icon-button-metadata  bg-auto bg-no-repeat  bg-position-left-corner-icon  pt-[2px] rounded-[6px];
+}
+
+button.btnUPLOAD {
+    @apply bg-gray-300 border-transparent border-[1px] text-black  text-center h-[30px] cursor-pointer w-[170px] hover:border-black
+ bg-icon-button-upload  bg-auto bg-no-repeat  bg-position-left-corner-icon  pt-[2px] pl-9 rounded-[6px];
+}
+
+button.btnSAVE {
+    @apply bg-blue-500 border-transparent border-[1px] text-white  text-center h-[30px] cursor-pointer w-[170px] hover:border-red-950
+ bg-icon-button-save  bg-auto bg-no-repeat  bg-position-left-corner-icon  pt-[2px] pl-9 rounded-[6px];
+}
+
+button.btnLOGIN {
+    @apply bg-blue-500 border-transparent border-[1px] text-white  text-center h-[30px] cursor-pointer min-w-[300px] hover:border-red-950
+ bg-icon-button-save  bg-auto bg-no-repeat  bg-position-left-corner-icon  pt-[2px] pl-9 rounded-[6px];
+}
+button.btnDELETE {
+    @apply bg-red-500 border-transparent border-[1px] text-white  text-center h-[30px] cursor-pointer w-auto  hover:border-red-950
+ bg-icon-button-delete  bg-auto bg-no-repeat  bg-position-left-corner-icon  pt-[2px] pl-9 rounded-[6px] px-[20px];
+}
+
+div.RESERVED_DAY {
+    @apply bg-auto bg-no-repeat  bg-position-center-icon  bg-icon-cancel;
+}
+
+button.btnCONTINUE {
+    @apply bg-blue-500 border-transparent border-[1px] text-white  text-center h-[30px] cursor-pointer min-w-[200px] hover:border-red-950
+ bg-icon-button-save  bg-auto bg-no-repeat  bg-position-left-corner-icon  pt-[2px] pl-9 rounded-[6px];
+}
+
+button.btnFLEXIBLE_OK {
+    @apply bg-blue-500 border-transparent border-[1px] text-white  text-center h-[30px] cursor-pointer w-auto hover:border-red-950
+ bg-icon-button-save  bg-auto bg-no-repeat  bg-position-left-corner-icon  pt-[2px] pl-9 rounded-[6px];
+}
+
+
+
+button.btnWORKGROUP_RESET_DATA {
+    @apply bg-white border-transparent  text-black   h-[50px] cursor-pointer w-full text-left
+            bg-icon-workgroup-data-reset  bg-auto bg-no-repeat  bg-position-left-corner-icon-3  pt-[2px]  rounded-3xl pl-24
+            border-2  border-gray-200 hover:border-black;
+}
+
+button.btnWORKGROUP_RANDOM_CHOOSE {
+    @apply bg-white border-transparent  text-black   h-[50px] cursor-pointer w-full  text-left
+      bg-icon-workgroup-random-choose  bg-auto bg-no-repeat  bg-position-left-corner-icon-4  pt-[2px]  rounded-3xl  pl-24
+      border-2  border-gray-200 hover:border-black;
+}
+
+button.btnLOG_IN_EXISTING_GROUP {
+    @apply bg-white border-transparent  text-black   h-[50px] cursor-pointer w-full  text-left
+      bg-icon-workgroup-get-in-group  bg-auto bg-no-repeat  bg-position-left-corner-icon-2  pt-[2px] rounded-3xl pl-24
+      border-2  border-gray-200 hover:border-black;
+}
+
+div.WORKGROUP_EXPLANATION {
+    @apply bg-white   text-black   h-auto w-full text-left border-b-gray-400 border-b-2 mb-2 pb-2 mt-1 text-sm 
+            bg-icon-workgroup-explanation  bg-auto bg-no-repeat  bg-position-left-corner-icon-1   pl-24;
+}
+
+/****************************************************************************
+css aplicado ao autocomplete de input type=text
+****************************************************************************/
+.autocomplete-suggestions {
+    border: 1px solid gray;
+    background: #fff;
+    overflow: auto;
+    font-size: 15px;
+}
+.autocomplete-suggestion {
+    padding: 2px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 15px;
+    cursor: pointer;
+    padding-left: 10px;
+    line-height: 30px;
+    font-family: "Tahoma";
+}
+.autocomplete-selected {
+    background: #f0f0f0;
+    font-size: 15px;
+}
+.autocomplete-suggestions strong {
+    font-weight: normal;
+    color: blue;
+    font-size: 15px;
+}
+.autocomplete-group {
+    padding: 2px 5px;
+}
+.autocomplete-group strong {
+    display: block;
+    border-bottom: 1px solid #000;
+}
+
+/****************************************************************************
+textarea usado eventualmente 
+****************************************************************************/
+textarea {
+    font-size: 1em;
+    height: 1.2em;
+    line-height: 1.2em;
+    vertical-align: middle;
+    border-top: 1px solid rgb(146, 186, 167);
+    border-bottom: 1px solid rgb(146, 186, 167);
+    border-left: 1px solid rgb(146, 186, 167);
+    border-right: 1px solid rgb(146, 186, 167);
+    background-color: white;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    cursor: pointer;
+    margin-top: 2px;
+    color: blue;
+    resize: none;
+    padding: 5px;
+}
+textarea:hover {
+    border-color: green;
+    background-color: #e6e6ff;
+}
+textarea:focus {
+    background-color: #ffffcc;
+    border-color: green;
+}
+
+/* div rolante que é exibida dentro de um form de edicao */
+
+#slidingFormMessage {
+    position: absolute;
+    height: 70px;
+    line-height: 70px;
+    z-index: 10000;
+    left: 4%;
+    display: none;
+    text-align: center;
+    bottom: 25px;
+    margin: auto;
+    background-color: #ffebeb;
+    border-color: #b40000;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    color: #c40000;
+    font-size: 1.3em;
+    width: 90%;
+}
+
+#slidingWindowMessage {
+    position: absolute;
+    height: 70px;
+    line-height: 70px;
+    z-index: 10000;
+    left: 4%;
+    display: none;
+    text-align: center;
+    bottom: 25px;
+    margin: auto;
+    background-color: #ffebeb;
+    border-color: #b40000;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    color: #c40000;
+    font-size: 1.3em;
+    width: 90%;
+}
+
+/* CSS's usados pela funcao 'tooltip' do jquery, melhora o visual do title padrao do navegador */
+.prettierTitle_black {
+    background-color: #333333 !important;
+    border-color: #333333 !important ;
+    border-bottom-left-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+    border-top-left-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    color: white !important;
+    font-family: "Roboto", sans-serif !important;
+    font-size: 13px !important;
+    line-height: 15px !important;
+    white-space: nowrap !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    position: relative !important;
+    display: inline-block !important;
+    z-index: 1000004 !important;
+}
+
+.prettierTitle_white {
+    background-color: #ebf6f9 !important;
+    border-color: blue !important ;
+    border-bottom-left-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+    border-top-left-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    color: black !important;
+    font-family: "Roboto", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 15px !important;
+    white-space: nowrap !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    position: relative !important;
+    display: inline-block !important;
+    z-index: 1000004 !important;
+}
+
+.prettierTitle_blue {
+    background-color: #ebf6f9 !important;
+    border-color: blue !important ; 
+    border-bottom-left-radius: 6px !important;
+    border-bottom-right-radius: 6px !important;
+    border-top-left-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    color: black !important;
+    font-family: "Roboto", sans-serif !important;
+    font-size: 16px !important;
+    line-height: 15px !important;
+    white-space: nowrap !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    position: relative !important;
+    display: inline-block !important;
+    z-index: 1000004 !important;
+}
+
+
+/* mensagem que aparece logo abaixo de cada input.text qdo detectado erro em seu preenchimento */
+.errorTextbox {
+    min-height: 25px;
+    visibility: visible;
+    color: red;
+}
+.noerrorTextbox {
+    min-height: 25px;
+    visibility: hidden;
+}
+
+/* bandeira país/idioma selecionado escolhida */
+.flagClicked {
+    background-color: #d6e5fc;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.deleteWarning {
+    font-weight: bold;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    color: red;
+}
+
+.flagUnclicked {
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+}
+.flagUnclicked:hover {
+    background-color: lightgray;
+}
+
+/* botao menu lateral esquerdo */
+.btn_sidebar {
+    @apply mx-auto w-11/12 hover:bg-white hover:border-2 hover:border-transparent border-2 border-transparent font-bold
+        rounded-lg h-12 flex justify-start items-center cursor-pointer mt-2;
+}
+
+/* texto botao menu lateral esquerdo */
+.btn_sidebar span {
+    @apply ml-5 pt-0;
+}
+
+.btn_sidebar_selected {
+    @apply mx-auto w-11/12 hover:bg-white hover:border-2 hover:border-transparent border-2 border-transparent font-bold
+        rounded-lg h-12 flex justify-start items-center cursor-pointer mt-2 bg-white border-gray-500;
+}
+
+/* texto botao menu lateral esquerdo */
+.btn_sidebar_selected span {
+    @apply ml-5 pt-0;
+}
+
+body {
+    @apply overflow-y-hidden;
+}
+
+/* botoes de mês/semana do calendario */
+.btnCalendarBottomButtons {
+    @apply cursor-pointer w-1/2 flex justify-center  text-center bg-gray-200  items-center hover:bg-[#B4D0F9] h-full text-black;
+}
+
+/* checkbox personalizado para selecao idioma/país */
+label[for="chkLanguageSelector"] {
+    @apply h-6 relative inline-block;
+}
+
+/*********************************************************************************************************************************
+input type='checkbox' em formato de switcher , seletor de idioma (topo da +page.svelte)
+*********************************************************************************************************************************/
+
+.switch_language {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 1px;
+}
+
+.switch_language input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider_language {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: lightgray;
+    -webkit-transition: 0.1s;
+    transition: 0.1s;
+    border: solid 1px transparent;
+}
+
+.slider_language:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 26px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white; /* cor da bolinha */
+    -webkit-transition: 0.1s;
+    transition: 0.1s;
+}
+
+input:checked + .slider_language {
+    background-color: lightgray;
+}
+
+input:focus + .slider_language {
+    box-shadow: 0 0 1px yellow;
+}
+
+input:checked + .slider_language:before {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+}
+
+.slider_language.round {
+    border-radius: 30px;
+    height: 30px;
+}
+
+.slider_language.round:before {
+    border-radius: 50%;
+}
+
+/*********************************************************************************************************************************
+input type='checkbox' em formato de switcher , seletor de valor de campo em form 
+exemplo: seletor de tipo transmissao veiculo: automatica ou manual
+*********************************************************************************************************************************/
+
+.switch_field_value {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 1px;
+}
+
+.switch_field_value input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider_field_value {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    -webkit-transition: 0.1s;
+    transition: 0.1s;
+    border: solid 1px gray;
+}
+
+.slider_field_value:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 16px;
+    left: 4px;
+    bottom: 3px;
+    background-color: gray; /* cor da bolinha */
+    -webkit-transition: 0.1s;
+    transition: 0.1s;
+}
+
+input:checked + .slider_field_value {
+    background-color: white;
+}
+
+input:focus + .slider_field_value {
+    box-shadow: 0 0 1px yellow;
+}
+
+input:checked + .slider_field_value:before {
+    -webkit-transform: translateX(34px);
+    -ms-transform: translateX(34px);
+    transform: translateX(34px);
+}
+
+.slider_field_value.round {
+    border-radius: 30px;
+    height: 20px;
+}
+
+.slider_field_value.round:before {
+    border-radius: 50%;
+}
+
+/************************************************************************************************************************************************
+DIVs usados em todos os componentes que exibem um datagrid/datatable, DIVs que funcionam como se fossem elementos de uma <TABLE> - TD, TR, etc
+/***********************************************************************************************************************************************/
+/* div maior que contem a table, search box, navigation bar */
+.divTABLE_CONTAINER {
+    @apply w-full flex flex-col overflow-y-hidden h-full overflow-x-hidden;
+}
+
+.divTABLE_TITLE {
+    @apply w-full border-b-2 border-b-gray-300 text-lg pb-1 grow-0;
+}
+
+.divTABLE_ICONS {
+    @apply flex justify-between w-full  pt-3 grow-0 flex-row;
+}
+
+/* searchBox => textbox para pesquisa , icone lupa no canto direito */
+.txtTABLE_SEARCHBOX {
+    /* magnifying-icon é definido em tailwind.config.js */
+    @apply cursor-pointer w-[400px] box-border border-2 border-gray-400 hover:border-black rounded-md bg-transparent bg-no-repeat 
+        bg-position-right-corner-icon p-searchbox bg-icon-magnifying h-9;
+}
+
+.txtTABLE_SEARCHBOX:focus {
+    @apply bg-[#ebf6f9];
+}
+
+/* div (quando ativa) que cancela filtro inputl.textbox do datatable */
+.btnTABLE_CANCEL_FILTER_ACTIVE {
+    /* icon-filter-cancel-active é definido em tailwind.config.js */
+    @apply cursor-pointer w-[70px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-filter-cancel-active  bg-contain bg-center hover:border-gray-500 h-9;
+}
+
+/* div (quando inativa) que cancela filtro inputl.textbox do datatable */
+.btnTABLE_CANCEL_FILTER_INACTIVE {
+    /* icon-filter-cancel-inactive é definido em tailwind.config.js */
+    @apply cursor-pointer w-[70px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-filter-cancel-inactive  bg-contain bg-center  h-9;
+}
+
+.btnTABLE_DELETE_RECORDS_ACTIVE {
+    /* icon-delete-active é definido em tailwind.config.js */
+    @apply cursor-pointer w-[70px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-delete-active  bg-contain bg-center hover:border-gray-500 h-9;
+}
+
+.btnTABLE_NEW_RECORD {
+    /* icon-new-record é definido em tailwind.config.js */
+    @apply cursor-pointer w-[70px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-new-record  bg-contain bg-center hover:border-gray-500 h-9;
+}
+
+.btnBOOKING_ADD_CAR_RESERVATION {
+    /* icon-ask-car é definido em tailwind.config.js */
+    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-ask-car  bg-contain bg-center hover:border-gray-500 h-12;
+}
+
+.btnBOOKING_ALL_CARS {
+    /* icon-all-cars é definido em tailwind.config.js */
+    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-all-cars  bg-contain bg-center hover:border-gray-500 h-12;
+}
+
+.btnBOOKING_LEFT_ARROW {
+    /* icon-left-arrow é definido em tailwind.config.js */
+    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-left-arrow  bg-contain bg-center hover:border-gray-500 h-12;
+}
+
+.btnBOOKING_RIGHT_ARROW {
+    /* icon-left-arrow é definido em tailwind.config.js */
+    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-right-arrow  bg-contain bg-center hover:border-gray-500 h-12;
+}
+
+.btnBOOKING_CALENDAR {
+    /* icon-left-arrow é definido em tailwind.config.js */
+    @apply cursor-pointer w-[130px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-calendar  bg-contain bg-center hover:border-gray-500 h-12;
+}
+
+.btnDATE_PICKER {
+    /* icon-left-arrow é definido em tailwind.config.js */
+    @apply cursor-pointer w-[60px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-date-picker  bg-contain bg-center hover:border-gray-500 h-[30px] ml-[1px];
+}
+
+.btnTABLE_DELETE_RECORDS_INACTIVE {
+    @apply cursor-pointer w-[70px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-delete-inactive  bg-contain bg-center  h-9;
+}
+
+.btnTABLE_UNCHECK_RECORDS {
+    @apply cursor-pointer w-[50px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-uncheck-records  bg-contain bg-center hover:border-gray-500 h-9;
+}
+
+.btnTABLE_CHECK_RECORDS {
+    @apply cursor-pointer w-[50px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-check-records  bg-contain bg-center hover:border-gray-500 h-9;
+}
+
+/* msg exibida quando aguardando resposta back end  */
+.divLOADING_MSG {
+    @apply text-blue-600 text-xl flex justify-center items-center h-full w-full;
+}
+
+/* barra de progresso msg que aparece quando datatable.svelte aguardando onload  */
+.divLOADING_BAR_OUTER {
+    @apply flex justify-start  w-[95%] rounded-lg bg-gray-200 h-8 text-lg;
+}
+
+/* barra de progresso msg que aparece quando datatable.svelte aguardando onload  */
+.divLOADING_BAR_INNER {
+    @apply flex bg-blue-400 justify-start h-8 w-0 rounded-lg mb-9;
+}
+
+/* msg que aparece quando datatable.svelte recebeu 0 registros de onload  */
+.divTABLE_NO_RECORDS {
+    @apply text-gray-700 text-lg flex justify-center items-center h-full w-full;
+}
+
+/* div que contem as 'linhas' (DIV's) da tabela, por isso necessario 'overflow-y-auto'  */
+.divTBODY {
+    @apply w-full flex flex-col   overflow-y-auto   border-2  flex-1;
+}
+
+/* div rodape do datatable   */
+.divTBASEBOARD {
+    @apply w-full flex flex-row   bg-white h-12 items-center;
+}
+
+/* div que contem o cabecalho (divTH's) da tabela   */
+.divTH_CONTAINER {
+    @apply w-full flex flex-row bg-gray-300  h-9  font-bold items-center text-gray-600;
+}
+
+/* cada coluna do cabecalho da tabela   */
+.divTH {
+    @apply border-[1px] border-transparent h-full  flex items-center p-2   hover:border-[1px] hover:border-black hover:cursor-pointer box-border;
+}
+
+/* se a coluna organiza a tabela ou nao, ascendente ou descendente, exibe icones diferentes no canto direito 
+after= coloca icone da ordem organizacao ao lado do titulo da coluna
+*/
+.divTH_SELECTED_ASC {
+    @apply border-[1px] p-2 border-transparent h-full  flex items-center  text-black   bg-no-repeat  bg-position-right-corner-icon  bg-[#c3c8d0]
+    after:content-image-arrow-up-icon after:inline-block after:pl-4 after:pt-1 hover:border-[1px] hover:border-black hover:cursor-pointer;
+}
+
+.divTH_SELECTED_DESC {
+    @apply border-[1px] border-transparent h-full  flex items-center p-2 text-black bg-[#c6cbd2]
+after:content-image-arrow-down-icon after:inline-block after:pl-4 after:pt-1 hover:border-[1px] hover:border-black hover:cursor-pointer;
+}
+
+.divTR {
+    @apply flex flex-row w-full cursor-pointer items-center hover:bg-[#ffedcc];
+}
+
+/* selected= qdo usuario clicar na divTR, coloca em cor diferente e coloca sua respectiva coluna 'checkbox' como marcada */
+.divTR_SELECTED {
+    @apply flex flex-row w-full cursor-pointer items-center bg-[#FFC266] hover:bg-[#FFC266];
+}
+
+/* divTD_CLICKABLE possui borda que destaca, para que usuario pense em clicar, a divTD responde a uma acao qdo clicada */
+.divTD_CLICKABLE {
+    @apply border-[1px] border-transparent h-full  flex  items-center p-2 hover:border-[1px] hover:border-gray-400 box-border;
+}
+
+/* divTD_NOT_CLICKABLE nao possui borda que destaca, para que usuario nao tente clicar */
+.divTD_NOT_CLICKABLE {
+    @apply border-[1px] border-transparent h-full items-center flex p-2 hover:border-[1px] hover:border-transparent truncate;
+}
+
+.divTD_ACTION {
+    @apply border-[1px] border-transparent  flex p-2 hover:border-[1px] hover:border-gray-400 text-center items-center basis-[50px] grow-0 shrink-0 truncate;
+}
+
+/* divTD_EDIT_BUTTON contem icone para edicao de registro */
+.divTD_EDIT_BUTTON {
+    @apply bg-icon-edit-record bg-center w-full bg-no-repeat h-7 bg-auto;
+}
+
+.divTD_DELETE_BUTTON {
+    /* icon-delete-active é definido em tailwind.config.js */
+    @apply bg-icon-delete-record  bg-auto bg-center h-7 bg-no-repeat w-full;
+}
+
+.divTD_INACTIVE_BUTTON {
+    /* icon-inactive-record é definido em tailwind.config.js */
+    @apply bg-icon-inactive-record  bg-auto bg-center h-7 bg-no-repeat w-full;
+}
+.divTD_ACTIVE_BUTTON {
+    /* icon-active-record é definido em tailwind.config.js */
+    @apply bg-icon-active-record  bg-auto bg-center h-7 bg-no-repeat w-full;
+}
+
+.btnTABLE_ONLY_ACTIVE_RECORDS_ON {
+    /* ON= com borda */
+    /* icon-only-active-records é definido em tailwind.config.js */
+    @apply cursor-pointer w-[70px] box-border border-2 border-gray-500  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-only-active-records  bg-contain bg-center hover:border-gray-500 h-9;
+}
+/* OFF= sem borda */
+.btnTABLE_ONLY_ACTIVE_RECORDS_OFF {
+    /* icon-only-active-records é definido em tailwind.config.js */
+    @apply cursor-pointer w-[70px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-only-active-records  bg-contain bg-center hover:border-gray-500 h-9;
+}
+
+.btnTABLE_ONLY_INACTIVE_RECORDS_ON {
+    /* ON= com borda */
+    /* icon-only-inactive-records é definido em tailwind.config.js */
+    @apply cursor-pointer w-[70px] box-border border-2 border-gray-500  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-only-inactive-records  bg-contain bg-center hover:border-gray-500 h-9;
+}
+/* OFF= sem borda */
+.btnTABLE_ONLY_INACTIVE_RECORDS_OFF {
+    /* icon-only-inactive-records é definido em tailwind.config.js */
+    @apply cursor-pointer w-[70px] box-border border-2 border-transparent  rounded-md bg-transparent bg-no-repeat 
+        bg-icon-only-inactive-records  bg-contain bg-center hover:border-gray-500 h-9;
+}
+
+/* div que contem opcao de carro para agendar uso na tela de reserva de carros (booking */
+.carCardBooking {
+    @apply w-[100%] bg-no-repeat bg-center h-[120px] relative hover:bg-gray-300 pt-2 pb-2 rounded-xl cursor-pointer bg-contain border-4 border-transparent hover:border-gray-400;
+}
+
+.carCardBookingClicked {
+    @apply w-[100%] bg-no-repeat bg-center h-[120px] relative hover:bg-gray-300 pt-2 pb-2 rounded-xl cursor-pointer bg-contain border-gray-500 bg-gray-300;
+}
+
+.carCardHome {
+    @apply border-transparent border-4 hover:border-blue-400;
+}
+
+.carCardHomeClicked {
+    @apply border-blue-800  border-4 hover:border-4 hover:border-gray-400;
+}
+
+.tdBookingHeader {
+    @apply hover:border-2 hover:border-gray-500 border-2 border-transparent  h-full flex items-center justify-center;
+}
+
+.tdBookingCell {
+    @apply border-l-2 border-gray-300  h-full flex items-center justify-center;
+}
+.carDetailsTitle {
+    @apply text-lg;
+}
+.carDetailsInfo {
+    @apply text-lg font-bold;
+}
+
+.carDetailsInfoSmaller {
+    @apply font-bold;
+}
+
+.cssLOADING_HIDE {
+    display: none;
+}
+
+.cssLOADING_SHOW {
+    width: 120px;
+    height: 90px;
+    position: fixed;
+    z-index: 1020999;
+    /*background: rgba(146, 200, 167, 0.5); */
+    background: rgba(100, 149, 237, 0.4);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F000000,endColorstr=#7F000000);
+    border-bottom: 1px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-top: 29px;
+}
+.bookingDivDrag {
+    @apply bg-icon-drag-booking-div w-7 bg-transparent bg-no-repeat bg-contain bg-center    flex -mt-7;
+}
+
+.bookingStartingHourInfo {
+    @apply bg-icon-booking-starting-hour w-7 bg-transparent bg-no-repeat bg-contain bg-center    flex mt-2;
+}
+
+.bookingEndingHourInfo {
+    @apply bg-icon-booking-ending-hour w-7 bg-transparent bg-no-repeat bg-contain bg-center  flex mt-2;
+}
+
+.bookingDriverInfo {
+    @apply bg-icon-booking-driver w-7 bg-transparent bg-no-repeat bg-contain bg-center    flex mt-1;
+}
+
+.notificationItem {
+    @apply leading-10 p-1 flex items-center hover:border-[1px] border-[1px] border-transparent hover:border-gray-700 rounded-lg;
+}
+
+
+
+/* icone cachorrinho, canto inferior direito */
+div._doggy {
+  bottom: 0px;
+  right: 5px;
+  z-index: 11;
+  position: fixed;
+  width: 65px;
+  height: 40px;
+  float: right;
+  cursor: pointer;
+  background: url('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com/images/_dog.png') no-repeat top left;
+}
+
+
+div._doggy_1 {
+  bottom: 1px;
+  display: none;
+  right: 80px;
+  z-index: 2000;
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  float: right;
+  background: url('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com/images/thought_1.png') no-repeat top left;
+}
+
+div._doggy_2 {
+  bottom: 1px;
+  display: none;
+  right: 80px;
+  z-index: 2000;
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  float: right;
+  background: url('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com/images/thought_2.png') no-repeat top left;
+}
+
+div._doggy_3_portuguese {
+  display: none;
+  bottom: -100px;
+  right: 80px;
+  z-index: 2001;
+  position: absolute;
+  background-color: red;
+  width: 342px;
+  height: 133px;
+  background: url('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com/images/thought_3.png') no-repeat top left;
+  float: right;
+}
+
+div._doggy_3_english {
+  display: none;
+  bottom: -100px;
+  right: 80px;
+  z-index: 2001;
+  position: absolute;
+  background-color: red;
+  width: 342px;
+  height: 133px;
+  background: url('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com/images/thought_3_english.png') no-repeat top left;
+  float: right;
+}
+
+
+
+.divAsButton {
+@apply flex flex-col justify-center  w-1/2  items-center border-2 border-transparent  rounded-lg;
+}
+
+.divAsButton:hover {
+@apply flex flex-col justify-center    items-center  bg-gray-200
+}
+
+.divAsButtonClicked {
+@apply flex flex-col justify-center  w-1/2  items-center border-2 border-blue-700 rounded-lg;
+}
+
+.divAsButtonClicked:hover {
+@apply flex flex-col justify-center    items-center border-blue-500 border-2 rounded-lg
+}
+
+.backendSelector {
+width: 100%;
+height:40px;
+display:flex;
+justify-content: start; 
+align-items: center;
+flex-grow:1;
+flex-direction: row;
+cursor:pointer;
+padding-left:10px;
+padding-top:10px;
+padding-right:30px;
+border: solid 2px transparent;
+}
+
+.backendSelector:hover {
+background-color: #FFEDCC;
+border: solid 2px navy;
+}
+
+#apiDisplay {
+  display: flex;
+  flex-direction: column;
+  bottom: 0px;
+  left: 0px;
+  z-index: 2000;
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  cursor: pointer;
+  background-color: black;
+  border: solid 3px blue;
+  padding-left:10px;
+  color: white;
+  font-size:14px;
+  overflow-y:scroll;
+}
+
+/**************************************************************************************************************************************/
+/* FIM  CSS proprio da aplicacao web */
+/**************************************************************************************************************************************/

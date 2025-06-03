@@ -1,0 +1,15 @@
+              <!-- graph bar buttons -->
+              <button class:btn_tipo_grafico_barra={grafico_barras_atual!="ytd"} class:btn_tipo_grafico_barra_clicado={grafico_barras_atual==="ytd"} 
+                  on:click={() => {grafico_barras_atual='ytd'}} >  
+              Acumulado Ano 
+              </button>
+
+              <button class:btn_tipo_grafico_barra={grafico_barras_atual!="mensal"}  class:btn_tipo_grafico_barra_clicado={grafico_barras_atual==="mensal"} 
+                  on:click={() => {grafico_barras_atual='mensal'}} >    
+              Mensal
+              </button>
+
+              <button class:btn_tipo_grafico_barra={grafico_barras_atual!="diario"} class:btn_tipo_grafico_barra_clicado={grafico_barras_atual==="diario"} 
+                  on:click={() => {grafico_barras_atual='diario'}} >    
+              Diário
+              </button>
