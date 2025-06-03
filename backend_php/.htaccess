@@ -1,0 +1,13 @@
+
+# fazem o php lidar com rotas
+
+RewriteEngine on 
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1
+
+# impedem listagem de arquivos
+Options -indexes
+
+DirectoryIndex index.php
+
