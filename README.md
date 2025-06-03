@@ -1,2 +1,7 @@
-# rentacar_svelte_X_golang
-# rentacar_svelte_X_golang
+# Aplicação de demonstração feita com Svelte/Tailwind/Vanilla css/jscript/Jquery X Golang
+
+Link para a aplicação containerizada na AWS:
+<a href="http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com:3000/" target="_blank">
+    <span style='font-size:20px'>http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com:3000/</span>
+</a>
+
