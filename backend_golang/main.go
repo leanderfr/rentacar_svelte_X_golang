@@ -20,7 +20,7 @@ func main() {
 	fmt.Println("*****************************************************************")
 	fmt.Println("*****************************************************************")
 	fmt.Println("*****************************************************************")
-	fmt.Println("CHEGOU")
+	fmt.Println("OK ESTOU AQUI")
 	// conecta com base com base
 	if err := models.DbSetup(); err != nil {
 		return

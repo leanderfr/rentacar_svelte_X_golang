@@ -701,8 +701,8 @@ if (whatToDo == 'reset' || whatToDo == 'another')  {
   workgroupInform = _currentWorkgroupName
 }
 
-// getWorkgroupRecordsReady() foi chamada no carregamento da aplicacao
-else {
+// getWorkgroupRecordsReady() foi chamada no carregamento da aplicacao   ( whatToDo == 'generate' )
+else {    
   // se workgroup ja obtido, siginifca que aplicacao foi executada anteriormente, grupo foi sorteado e dados default copiados
   if (_currentWorkgroupName!=null)  {
     jq('#btnWorkgroupMenu').html ( _currentWorkgroupName )
@@ -729,7 +729,20 @@ try {
 
     cloningCurrentBackend.set( _backendUrlGolang_ )
 
-    await fetch(`${_backendUrlGolang_}/workgroup/${whatToDo}/${workgroupInform}`, 
+
+    /***************************************************************************
+    alteracao em 27/09/2025, o unico backend que faz clonagem de regs/arquivos
+    a partir de agora é o PHP
+    ***************************************************************************/
+    let _backendUrlPHP_
+    backendUrlPHP.subscribe((value) => {
+      _backendUrlPHP_ = value 
+    })
+
+
+    cloningCurrentBackend.set( _backendUrlPHP_ )
+
+    await fetch(`${_backendUrlPHP_}/workgroup/${whatToDo}/${workgroupInform}`, 
                   { method: 'POST', body: _clientInfo,  headers: { 'Content-Type': 'application/json' } })   
 
     .then((response) => {

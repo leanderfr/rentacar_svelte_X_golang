@@ -18,7 +18,7 @@ backend_golang/*.exe~
 backend_golang/*.dll
 backend_golang/*.so
 backend_golang/*.dylib
-backend_golang/*.test
+backend_golang/*.test 
 backend_golang/*.out
 backend_golang/coverage.*
 backend_golang/*.coverprofile

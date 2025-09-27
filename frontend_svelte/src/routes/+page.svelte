@@ -1,3 +1,4 @@
+
 <style>
 @import '$public/tailwind.css';
 
@@ -97,11 +98,17 @@ onMount(() => {
 
 
       // antes de sair da apliacao web, desliga verificacao de novas notificacoes
+
+      /*********************************************************
+      a partir de 27/09/25, a mensageria será feita usando Kafka 
+
       window.onbeforeunload = function () {
           clearInterval(newNotificationsChecking) 
           newNotificationsChecking = null
           console.log("newNotificationsChecking killed")
       }
+      *****************************************************************************/
+       
 
       // melhora title da div que informa o backend/da acesso a mudanca de backend
       jq('#divBackendChoice').tooltip({ 
@@ -322,10 +329,16 @@ if (lastNotificationIdRead == null)   localStorage.setItem("rentacar_last_notifi
 
 
 // solicita a cada 10 segundos verificacao de novas notificacoes
+
+/*********************************************************
+a partir de 27/09/25, a mensageria será feita usando Kafka 
+
 newNotificationsChecking = setInterval(async function () {
   checkNewNotifications()
 
 }, 10000);
+
+*********************************************************/
 
 
 }
@@ -472,11 +485,16 @@ setTimeout(() => {
         slidingMessage('slidingWindowMessage', $Terms.new_current_workgroup + '&nbsp;&nbsp;' + _currentWorkgroupName, 3000)    
 
         // fecha conexao de verificacao de novas notificacoes, do grupo atual, primeiramente
+        /*********************************************************
+        a partir de 27/09/25, a mensageria será feita usando Kafka 
+
         if ( newNotificationsChecking != null) {
           clearInterval(newNotificationsChecking) 
           newNotificationsChecking = null
           console.log("newNotificationsChecking killed")
         }
+
+        *********************************************************/
 
         jq('#homeCarsBrowser').scrollLeft(0);  // reseta scroll browser carros Home.svelte (se estiver visivel)
         jq('#bookingCarsBrowser').scrollTop(0);  // reseta scroll browser carros Booking.svelte
@@ -519,11 +537,17 @@ if ( userConfirmedRandomChooseAnotherGroup )    {
 
 setTimeout(() => {
     // fecha conexao de verificacao de novas notificacoes, do grupo atual,  primeiramente
+
+    /*********************************************************
+    a partir de 27/09/25, a mensageria será feita usando Kafka 
+
     if ( newNotificationsChecking != null ) {
       clearInterval(newNotificationsChecking) 
       newNotificationsChecking = null
       console.log("newNotificationsChecking killed")
     }
+
+    *************************************************************/
 
     jq.when(getWorkgroupRecordsReady( whatToDo )).done(function()  {  
 
@@ -653,26 +677,32 @@ const onKeyDown = (e) =>  {
 // manipula erros genericos javascript
 const handleJsGeneralError = (e) => {
 
-// desliga verificacao de notificacoes
-if (typeof newNotificationsChecking!='undefined') {
-  clearInterval(newNotificationsChecking) 
-  console.log("newNotificationsChecking killed")
-}
+    // desliga verificacao de notificacoes
 
-$reportedErrorMessage = e.error.message
+    /*********************************************************
+    a partir de 27/09/25, a mensageria será feita usando Kafka 
+
+    if (typeof newNotificationsChecking!='undefined') {
+      clearInterval(newNotificationsChecking) 
+      console.log("newNotificationsChecking killed")
+    }
+
+    *****************************************************/
+
+    $reportedErrorMessage = e.error.message
 }
 
 // manipula erros de PROMISE, gerados ao fazer api fetch no back end
 // maioria das chamadas api fetch tem tratamento de erro especifico acoplado, algumas nao
 const handleJsAPIFetchError = (e) => {
 
-// desliga verificacao de notificacoes
-if (typeof newNotificationsChecking!='undefined') {
-  clearInterval(newNotificationsChecking) 
-  console.log("newNotificationsChecking killed")
-}
+    // desliga verificacao de notificacoes
+    if (typeof newNotificationsChecking!='undefined') {
+      clearInterval(newNotificationsChecking) 
+      console.log("newNotificationsChecking killed")
+    }
 
-$reportedErrorMessage = e.reason.message
+    $reportedErrorMessage = e.reason.message
 }
 
 /************************************************************************************************************************************************************
@@ -697,11 +727,19 @@ refreshTerms();
 setTimeout(() => {
 
     // fecha eventual conexao de verificacao de novas notificacoes, caso exista
+    /*********************************************************
+    a partir de 27/09/25, a mensageria será feita usando Kafka 
+
     if ( newNotificationsChecking != null ) {
+
+
       clearInterval(newNotificationsChecking) 
       newNotificationsChecking = null
       console.log("newNotificationsChecking killed")
     }
+
+    ***********************************************************/
+
 
     // chama backend para criacao de grupo e preparacao (clonagem) dos dados
     // se o grupo ja esta preparado, getWorkgroupRecordsReady retorna sem fazer nada

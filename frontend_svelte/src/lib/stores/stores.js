@@ -25,12 +25,12 @@ export const backendUrl = writable('')
 // backends possiveis
 //export const backendUrlPHP = writable('http://127.0.0.1:80')
 
-export const backendUrlPHP = writable('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com:8072')
-//export const backendUrlPHP = writable('http://127.0.0.1:8072')
+//export const backendUrlPHP = writable('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com:8072')
+export const backendUrlPHP = writable('http://localhost/')
 
 // URL usada durante o desenvolvimento da app
-//export let backendUrlGolang = writable('http://127.0.0.1:8070')  
-export let backendUrlGolang = writable('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com:8070')  
+export let backendUrlGolang = writable('http://127.0.0.1:8070')  
+//export let backendUrlGolang = writable('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com:8070')  
 
 // repositorio de imagens de carros, fabricantes, etc
 export const imagesUrl = writable('https://devs-app.s3.sa-east-1.amazonaws.com/rentacar_images/')
