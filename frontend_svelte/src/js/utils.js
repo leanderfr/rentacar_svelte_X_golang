@@ -746,7 +746,6 @@ try {
                   { method: 'POST', body: _clientInfo,  headers: { 'Content-Type': 'application/json' } })   
 
     .then((response) => {
-
       if (!response.ok) {
         jq('#btnWorkgroupMenu').html ( '* error *' )  
         throw new Error(`Workgroup Get Err Fatal= ${response.status}`);

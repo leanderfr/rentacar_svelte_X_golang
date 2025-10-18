@@ -26,7 +26,7 @@ export const backendUrl = writable('')
 //export const backendUrlPHP = writable('http://127.0.0.1:80')
 
 //export const backendUrlPHP = writable('http://ec2-54-233-183-5.sa-east-1.compute.amazonaws.com:8072')
-export const backendUrlPHP = writable('http://localhost/')
+export const backendUrlPHP = writable('http://localhost')
 
 // URL usada durante o desenvolvimento da app
 export let backendUrlGolang = writable('http://127.0.0.1:8070')  
