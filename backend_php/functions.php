@@ -75,7 +75,7 @@ function executeFetchQueryAndReturnJsonResult($sql): array {
 // quando a operacao = mudanca status, exclusao, nao é feita notificacao
 //*********************************************************************************************************
 
-function executeCrudQueryAndReturnResult($sql, $needToReturnId = false, $anyNotificationToMake='', $workgroup='', $clientIp='' ) {
+function executeCrudQueryAndReturnResult($sql, $needToReturnId = false, $anyNotificationToMake='', $workgroup='', $clientIp='' ): string {
   global $dbConnection;
 
   // executa a operacao (insert/update/delete)
@@ -89,7 +89,6 @@ function executeCrudQueryAndReturnResult($sql, $needToReturnId = false, $anyNoti
     $lastId = mysqli_query($dbConnection, "select LAST_INSERT_ID() as record_id" ) or internalError('[3] Database error / Erro na base de dados');
     if ($___lastID = mysqli_fetch_object($lastId))   $newRecordId = $___lastID->record_id;
     else internalError('[4] Database error / Erro na base de dados');
-
 
     // cria notificacao para que os demais usuarios do grupo saibam que houve alteracao na base
     if ( $anyNotificationToMake != '' ) {
@@ -105,7 +104,7 @@ function executeCrudQueryAndReturnResult($sql, $needToReturnId = false, $anyNoti
 
     http_response_code(200);   // 200= requisicao bem sucedida
     if ($needToReturnId) return "__success__|$newRecordId";
-    else die( '__success__' );
+    else return  '__success__' ;
 
   } catch(Exception $e)  {
     internalError( mysqli_error($dbConnection) );
